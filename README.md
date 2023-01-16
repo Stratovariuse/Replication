@@ -32,11 +32,11 @@ host    replication     user_replic     158.160.11.74/28        scram-sha-256
 
 ![описание](Screenshot_5.png)  
 
-* 2ВМ - создадим таблицу test2 (заодно создаем такую же таблицу, с такой же структурой на 3ВМ без внесения данных). Создадим публикацию test2_pub.
+* 2ВМ - аналогичным образом создадим публикацию test2_pub.
 **CREATE PUBLICATION test2_pub FOR TABLE test2;**
 
 * Создаем две подписки на 3ВМ  
-* 
+
 **CREATE SUBSCRIPTION test2_sub**
 **CONNECTION 'host=51.250.2.165 port=5433 user=postgres password=123456 dbname=postgres'** 
 **PUBLICATION test2_pub WITH (copy_data = true);**
